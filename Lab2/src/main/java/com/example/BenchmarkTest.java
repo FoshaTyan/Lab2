@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Thread)
 public class BenchmarkTest {
 
-    @Param({"1000"})
+    @Param({"100"})
     int size;
 
     int[][] A, B;

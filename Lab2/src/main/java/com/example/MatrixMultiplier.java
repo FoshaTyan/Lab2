@@ -22,7 +22,7 @@ public class MatrixMultiplier {
                         if (nextI[0] >= m) break;
                         row = nextI[0];
                         col = nextJ[0];
-                        calculated[row][col] = true;
+
                         if (++nextJ[0] >= k) {
                             nextJ[0] = 0;
                             nextI[0]++;
