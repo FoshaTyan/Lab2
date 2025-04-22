@@ -17,9 +17,9 @@ public class Main {
         System.out.println("\nМатриця B:");
         Matrix.printMatrix(B);
 
-        int[][] result = MatrixMultiplier.multiplyVirtualWithLimit(A, B, p);
+        int[][] result = MatrixMultiplier.multiplyFixed(A, B, p);
 
         System.out.println("\nРезультат множення:");
-        Matrix.printMatrix(result);
+        //Matrix.printMatrix(result);
     }
 }

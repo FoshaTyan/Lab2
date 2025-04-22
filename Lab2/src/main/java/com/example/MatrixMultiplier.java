@@ -7,7 +7,6 @@ public class MatrixMultiplier {
     public static int[][] multiplyFixed(int[][] A, int[][] B, int threads) throws InterruptedException {
         int m = A.length, n = A[0].length, k = B[0].length;
         int[][] C = new int[m][k];
-        boolean[][] calculated = new boolean[m][k];
         Object lock = new Object();
         ExecutorService pool = Executors.newFixedThreadPool(threads);
         CountDownLatch latch = new CountDownLatch(m * k);
@@ -27,12 +26,14 @@ public class MatrixMultiplier {
                             nextJ[0] = 0;
                             nextI[0]++;
                         }
+//                        System.out.printf("Потік %s обчислює C[%d][%d]%n", Thread.currentThread().getName(), row, col);
                     }
                     for (int x = 0; x < n; x++) {
                         C[row][col] += A[row][x] * B[x][col];
                     }
                     latch.countDown();
                 }
+//                System.out.printf("Потік %s завершив роботу%n", Thread.currentThread().getName());
             });
         }
         latch.await();
